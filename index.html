@@ -17,7 +17,7 @@
 			</div>
 
 			<!-- Splash Page -->
-			<div class="card" id="splash-page">
+			<div class="card" id="splash-page" hidden>
 				<form id="start-form">
 					<div class="selction-container">
 						<!-- 10 Questions Radio Input -->
@@ -48,7 +48,7 @@
 							</span>
 						</div>
 						<!-- 99 Questions Radio Input -->
-						<div class="radio-container selected-label">
+						<div class="radio-container">
 							<label for="value-99">99 Questions</label>
 							<input value="99" type="radio" name="questions" id="value-99" />
 							<span class="best-score">
@@ -57,7 +57,16 @@
 							</span>
 						</div>
 					</div>
+					<!-- Start Button -->
+					<div class="selection-footer">
+						<button type="submit" class="start">Start Round</button>
+					</div>
 				</form>
+			</div>
+
+			<!-- Countdown Page -->
+			<div class="card" id="countdown-page">
+				<h1 class="countdown">3</h1>
 			</div>
 		</div>
 		<!-- Script -->
