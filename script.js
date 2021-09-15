@@ -82,3 +82,15 @@ function createEquations() {
 //   bottomSpacer.classList.add('height-500');
 //   itemContainer.appendChild(bottomSpacer);
 // }
+
+// Event Listeners
+startForm.addEventListener('click', () => {
+  radioContainers.forEach((radioEl) => {
+    // Remove selected label styling
+    radioEl.classList.remove('selected-label');
+    // Add it back if the radio input is checked
+    if (radioEl.children[1].checked) {
+      radioEl.classList.add('selected-label');
+    }
+  });
+});
