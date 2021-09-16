@@ -50,6 +50,18 @@ const checkTime = () => {
     console.log(playerGuessArr, 'playerGuessArr');
     // Stop the timer
     clearInterval(timer);
+    // Check for wrong answers, and add penalty time
+    equationsArray.forEach((guess, index) => {
+      if (guess.evaluated === playerGuessArr[index]) {
+        // Correct guess, No penalty
+
+      } else {
+        // Wrong guess, add penalty time
+        penaltyTime += 0.5;
+      }
+    });
+    finalTime = timeplayed + penaltyTime;
+    console.log(finalTime, 'finalTime', 'penaltyTime', penaltyTime);
   }
 };
 
