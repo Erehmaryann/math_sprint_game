@@ -43,8 +43,30 @@ let finalTimeDisplay = "0.0s";
 // Scroll
 let valueY = 0;
 
+// Reset Game
+const playAgain = () => {
+  gamePage.addEventListener('click', startTimer);
+  // hide score page
+  scorePage.hidden = true;
+  // Show splash page
+  splashPage.hidden = false;
+  // Reset equation array
+  equationsArray = [];
+  // Reset player guess array
+  playerGuessArr = [];
+  // Reset Scroll
+  valueY = 0;
+  // Reset play again button
+  playAgainBtn.hidden = true;
+};
+window.playAgain = playAgain;
+
 // Show Score page
 const showScorePage = () => {
+  // Show Play Again button after 1 second
+  setTimeout(() => {
+    playAgainBtn.hidden = false;
+  }, 1000);
   gamePage.hidden = true;
   scorePage.hidden = false;
 };
@@ -58,8 +80,10 @@ const scoresToDOM = () => {
   penaltyTime = penaltyTime.toFixed(1);
   // Set the final time in the DOM
   finalTimeEl.textContent = `${finalTimeDisplay}s`;
-  baseTimeEl.textContent = `Base Time: ${baseTime}`;
+  baseTimeEl.textContent = `Base Time: ${baseTime}s`;
   penaltyTimeEl.textContent = `Penalty Time: +${penaltyTime}s`;
+  // Scroll to the top of the page, go to score page 
+  itemContainer.scrollTo({ top: 0, behavior: 'instant' });
   showScorePage();
 };
 
