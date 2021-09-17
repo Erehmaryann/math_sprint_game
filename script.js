@@ -43,6 +43,26 @@ let finalTimeDisplay = "0.0s";
 // Scroll
 let valueY = 0;
 
+// Show Score page
+const showScorePage = () => {
+  gamePage.hidden = true;
+  scorePage.hidden = false;
+};
+
+// Format and display time in Dom
+const scoresToDOM = () => {
+  // toFixed method formats a number to a certain number of decimal places
+  finalTimeDisplay = finalTime.toFixed(1);
+  // Set the base time in the DOM
+  baseTime = timeplayed.toFixed(1);
+  penaltyTime = penaltyTime.toFixed(1);
+  // Set the final time in the DOM
+  finalTimeEl.textContent = `${finalTimeDisplay}s`;
+  baseTimeEl.textContent = `Base Time: ${baseTime}`;
+  penaltyTimeEl.textContent = `Penalty Time: +${penaltyTime}s`;
+  showScorePage();
+};
+
 // Stop the timer, and Process Results, got to the score page
 const checkTime = () => {
   console.log(timeplayed, 'timeplayed');
@@ -62,6 +82,7 @@ const checkTime = () => {
     });
     finalTime = timeplayed + penaltyTime;
     console.log(finalTime, 'finalTime', 'penaltyTime', penaltyTime);
+    scoresToDOM();
   }
 };
 
